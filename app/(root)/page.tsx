@@ -2,6 +2,7 @@ import StartupCard, { StartupTypeCard } from "@/components/StartupCard";
 import SearchForm from "../../components/SearchForm";
 import { STARTUPS_QUERY } from "@/sanity/lib/queries";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
+import { auth } from "@/auth";
 
 const Home = async ({
   searchParams,
@@ -9,6 +10,8 @@ const Home = async ({
   searchParams: Promise<{ query?: string }>;
 }) => {
   const query = (await searchParams).query;
+  const session = await auth();
+
   const params = { search: query || null };
   // you can think why we have writeen query in key value pair insted we could have writeen it directly Because when calling sanityFetch({ query: STARTUPS_QUERY, params }),
   //  the params need to be passed as an object where the keys match the variables used inside the Sanity query.
