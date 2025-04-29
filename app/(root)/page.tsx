@@ -11,7 +11,7 @@ const Home = async ({
   const query = (await searchParams).query;
   const params = { search: query || null };
   // you can think why we have writeen query in key value pair insted we could have writeen it directly Because when calling sanityFetch({ query: STARTUPS_QUERY, params }),
-  //    the params need to be passed as an object where the keys match the variables used inside the Sanity query.
+  //  the params need to be passed as an object where the keys match the variables used inside the Sanity query.
 
   // const posts = await client.fetch(STARTUPS_QUERY);//this is one method to fetch the data
   const { data: posts } = await sanityFetch({ query: STARTUPS_QUERY, params }); // this is a new way to fetch the data this is faster compared to other one you can watch the video 2:49

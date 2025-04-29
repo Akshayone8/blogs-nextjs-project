@@ -63,6 +63,7 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
         </div>
         <hr className="divider" />
         <Suspense fallback={<Skeleton className="view_skeleton" />}>
+          {/* partial pre rendering */}
           <View id={id} />
         </Suspense>
       </section>
